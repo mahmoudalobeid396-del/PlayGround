@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="theme-color" content="#101210" />
+  <title>BREACH / Site 04</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game"></canvas>
+    <div class="lens-vignette"></div><div class="grain"></div><div class="scanline"></div>
+    <div id="hud" class="hidden">
+      <div class="topline"><div class="rec"><i></i> REC <b id="clock">00:00:00</b></div><div class="mission-tag">OPERATION NIGHTFALL <span>/</span> SITE 04</div><div class="signal">● &nbsp;LIVE FEED <span>CAM 02</span></div></div>
+      <div class="objective"><div class="obj-label">CURRENT OBJECTIVE</div><div id="objective-text">CLEAR THE BUILDING</div><div id="objective-sub">Hostiles remaining: <b>3</b></div></div>
+      <div class="compass"><span>N</span><div class="compass-line"></div><small>241°</small></div>
+      <div class="center-reticle"><i></i><b></b></div>
+      <div id="hit-marker" class="hit-marker">×</div>
+      <div class="bottom-left"><div class="health-title">VITALS <span>● STABLE</span></div><div class="health-track"><i id="health-fill"></i></div><div class="health-num"><strong id="health">100</strong><small> / 100</small></div><div class="stance">STANCE <b id="stance">STANDING</b></div></div>
+      <div class="bottom-right"><div class="weapon-name">M4A1 <span>5.56×45 NATO</span></div><div class="ammo"><strong id="ammo">30</strong><span>/</span><small id="reserve">90</small></div><div class="ammo-label">MAGAZINE <span>•</span> RESERVE</div><div class="weapon-mode"><i></i> SEMI-AUTO <b>SAFE</b></div></div>
+      <div id="toast" class="toast"></div>
+      <div id="damage-flash"></div>
+      <div class="bodycam-stamp">BODYCAM 02 &nbsp;·&nbsp; 2025-11-04 &nbsp; 02:14:08<br>UNIT 07 &nbsp; / &nbsp; ENTRY TEAM</div>
+      <div class="interact-hint" id="interact-hint">[ E ] &nbsp; INTERACT</div>
+    </div>
+    <section id="start-screen" class="screen">
+      <div class="start-card">
+        <div class="brand"><div class="brand-mark">B<span>/</span></div><div><div class="brand-overline">TACTICAL RESPONSE UNIT</div><div class="brand-title">BREACH<span>.</span></div></div></div>
+        <div class="rule"></div>
+        <div class="mission-line"><span>FIELD OPERATION 04</span><span class="status-pill">● LIVE</span></div>
+        <h1>THE OLD<br>RESIDENCE</h1>
+        <p class="brief">Suspected armed occupants inside a condemned property. Entry team has established a perimeter. Clear the structure and secure the site.</p>
+        <div class="brief-stats"><div><small>LOCATION</small><b>INDUSTRIAL DISTRICT</b></div><div><small>THREAT LEVEL</small><b class="threat">ELEVATED</b></div><div><small>TEAM STATUS</small><b>SOLO ENTRY</b></div></div>
+        <button id="deploy">DEPLOY <span>→</span></button>
+        <div class="controls"><div><kbd>W A S D</kbd> MOVE</div><div><kbd>MOUSE</kbd> LOOK</div><div><kbd>LMB</kbd> FIRE</div><div><kbd>RMB</kbd> AIM</div><div><kbd>R</kbd> RELOAD</div><div><kbd>SHIFT</kbd> SPRINT</div><div><kbd>CTRL</kbd> CROUCH</div><div><kbd>ESC</kbd> PAUSE</div></div>
+        <div class="card-foot"><span>BODY-WORN CAMERA SYSTEM &nbsp; / &nbsp; FEED 02</span><span>NO. 004-19</span></div>
+      </div>
+      <div class="screen-side"><div class="side-kicker">MISSION BRIEFING</div><div class="side-line"></div><p>“Control, entry team. We’re moving to the front door. Possible three armed subjects inside. Proceeding with caution.”</p><div class="side-meta">DISPATCH AUDIO TRANSCRIPT <span>02:13:52</span></div><div class="side-bottom">FIELD UNIT 07<br>RECORDED LOCALLY</div></div>
+    </section>
+    <section id="pause-screen" class="screen hidden"><div class="pause-panel"><div class="brand-overline">FEED INTERRUPTED</div><h2>PAUSED<span>.</span></h2><p>Press <kbd>ESC</kbd> or click below to resume.</p><button id="resume">RESUME OPERATION</button></div></section>
+    <section id="result-screen" class="screen hidden"><div class="pause-panel"><div class="brand-overline" id="result-kicker">OPERATION REPORT</div><h2 id="result-title">SITE SECURED<span>.</span></h2><p id="result-copy">All hostiles neutralized.</p><button id="restart">REDEPLOY</button></div></section>
+    <div class="boot-mark"><span>TRU</span> BODYCAM SYSTEM <i>v.2.4.1</i></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
